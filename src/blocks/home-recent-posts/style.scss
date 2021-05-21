@@ -1,0 +1,14 @@
+@import "../../styles/functions";
+@import "../../styles/mixins";
+@import "../../styles/global/headings";
+@import "../../styles/global/authors";
+
+.home-recent-posts {
+  @include contain(main);
+  margin-top: 55px;
+  .recent-posts-wrap {
+    .post {
+      width: column_width_plus_gutter("4", "45px");
+    }
+  }
+}

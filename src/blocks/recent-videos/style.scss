@@ -1,0 +1,39 @@
+.video-feed {
+  max-width: 80%;
+  margin-bottom: 30px;
+  h2 {
+    margin: 30px 0;
+    font-size: 22px;
+    line-height: 27px;
+  }
+  .video {
+    width: calc((100% / 3) - 20px);
+    margin-bottom: 60px;
+    .color-wrap {
+      background-color: #fff;
+      .video-embed {
+        height: 185px;
+        overflow: hidden;
+        iframe {
+          max-height: 100%;
+          max-width: 100%;
+        }
+      }
+      .copy-wrap {
+        padding: 30px 25px;
+        h4 {
+          font-size: 22px;
+          line-height: 27px;
+          color: #1856ed;
+          margin: 0 0 20px;
+        }
+        p {
+          margin: 0;
+          .readmore {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

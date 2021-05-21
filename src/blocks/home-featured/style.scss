@@ -1,0 +1,41 @@
+@import "../../styles/functions";
+@import "../../styles/mixins";
+@import "../../styles/global/headings";
+@import "../../styles/global/authors";
+
+.home-featured-posts {
+  @include contain(main);
+  .featured-posts-wrap {
+    .post {
+      .post-meta {
+        margin-bottom: 10px;
+      }
+      h3.post-title {
+        margin: 0 0 15px;
+      }
+      .excerpt {
+        font-size: 14px;
+        line-height: 25px;
+        margin: 0 0 10px;
+      }
+      figure.featured-post-image {
+        height: 225px;
+        background-size: cover;
+        background-position: 50%;
+        position: relative;
+        margin-bottom: 25px;
+        a {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      flex-basis: single_column_width_plus_gutter("25%", "3", "45px");
+      width: single_column_width_plus_gutter("25%", "3", "45px");
+      &:first-child {
+        flex-basis: single_column_width_plus_gutter("50%", "3", "45px");
+        width: single_column_width_plus_gutter("50%", "3", "45px");
+      }
+    }
+  }
+}

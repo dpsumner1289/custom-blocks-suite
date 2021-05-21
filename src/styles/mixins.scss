@@ -1,0 +1,7 @@
+@mixin contain($size) {
+  width: 100%;
+  @if $size == main {
+    max-width: 1199px;
+    margin: 0 auto;
+  }
+}

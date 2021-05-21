@@ -1,0 +1,14 @@
+@import "./style.scss";
+
+.wp-block {
+  max-width: 100%;
+  .block-editor-plain-text.cta {
+    background-color: transparent;
+    text-align: center;
+  }
+  .home-newsletter-signup {
+    .cta {
+      width: 100%;
+    }
+  }
+}

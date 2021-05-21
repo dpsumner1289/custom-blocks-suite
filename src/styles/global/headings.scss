@@ -1,0 +1,35 @@
+@import "./colors";
+
+h2 {
+  &.featured {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  &.cta {
+    font-size: 26px;
+    line-height: 39px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+  &.recent {
+    font-size: 24px;
+    line-height: 70px;
+    margin-top: 0;
+  }
+  &.industry {
+    line-height: 70px;
+  }
+}
+
+h3 {
+  &.post-title {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 10px 0;
+    a {
+      font-size: inherit;
+      line-height: inherit;
+      color: $charcoal;
+    }
+  }
+}

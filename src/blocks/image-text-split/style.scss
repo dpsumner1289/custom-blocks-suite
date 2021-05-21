@@ -1,0 +1,44 @@
+.text-image-split {
+  background-color: white;
+  padding: 90px 65px;
+  margin-bottom: 30px !important;
+  &.imageRight {
+    .text-side {
+      order: 1;
+      padding-right: 67px;
+    }
+    .image-side {
+      order: 2;
+    }
+  }
+  &.imageLeft {
+    .text-side {
+      order: 2;
+      padding-left: 67px;
+    }
+    .image-side {
+      order: 1;
+    }
+  }
+  &:last-of-type {
+    margin-bottom: 90px !important;
+  }
+  .image-side {
+    overflow: hidden;
+  }
+  .text-side {
+    h3 {
+      font-size: 27px;
+      margin: 0 0 45px;
+    }
+    .eyebrow {
+      font-size: 14px;
+      font-weight: 700;
+      color: #33c99c;
+    }
+    .text-half {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}

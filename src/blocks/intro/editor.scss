@@ -1,0 +1,14 @@
+@import "../../common";
+
+.wp-block {
+  &[data-type="ctct-bcb/intro"] {
+    max-width: 80%;
+  }
+  .container.intro {
+    padding: 1.5rem;
+    font-family: $font;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+  }
+}

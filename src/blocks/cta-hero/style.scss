@@ -1,0 +1,49 @@
+#site-content {
+  .cta-hero {
+    .cta-hero__image {
+      figure {
+        max-width: 100%;
+        min-height: 400px;
+        overflow: hidden;
+        flex: 1;
+        width: 100%;
+        position: relative;
+        img {
+          position: absolute;
+          top: 0;
+          width: auto !important;
+          height: 100% !important;
+        }
+      }
+    }
+    .cta-hero__content {
+      .cta-hero__title {
+        margin-top: 0;
+      }
+    }
+    &.dark {
+      background-color: #333333;
+      .cta-hero__content {
+        color: white;
+        a {
+          color: white;
+        }
+      }
+    }
+    &.container-main {
+      margin-top: 90px;
+      .cta-hero__image {
+        img {
+          left: -110px;
+        }
+      }
+    }
+    &.container-lg {
+      .cta-hero__image {
+        img {
+          left: 0;
+        }
+      }
+    }
+  }
+}

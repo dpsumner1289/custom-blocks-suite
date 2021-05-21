@@ -1,0 +1,50 @@
+.wp-block {
+  &[data-type="ctct-bcb/image-text-split"] {
+    max-width: 80%;
+    .text-image-split {
+      background-color: white;
+      padding: 60px 30px;
+      margin-bottom: 30px !important;
+      &.imageRight {
+        .text-side {
+          order: 1;
+          padding-right: 67px;
+        }
+        .image-side {
+          order: 2;
+        }
+      }
+      &.imageLeft {
+        .text-side {
+          order: 2;
+          padding-left: 67px;
+        }
+        .image-side {
+          order: 1;
+        }
+      }
+      .image-side {
+        overflow: hidden;
+        height: 275px;
+        img {
+          max-width: none;
+        }
+      }
+      .text-side {
+        .eyebrow {
+          color: #33c99c;
+          font-size: 15px;
+        }
+        textarea {
+          font-size: 27px;
+          text-align: center;
+          font-weight: bold;
+        }
+        .text-half {
+          font-size: 16px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}

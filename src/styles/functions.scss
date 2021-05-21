@@ -1,0 +1,34 @@
+// PREREQUISITES: the column container must be styled like so:
+//
+// .container {
+//     display: flex;
+//     flex-direction: row;
+//     flex-shrink: 0;
+//     justify-content: space-between;
+// }
+//
+// to make a new gutter class, take the number of columns you want to make,
+// and subtract one. i.e. 5 columns – minus 1 is 4. Then, multiple the gutter
+// width by this number. i.e. 45px gutter – 45px X 4 = 180px. Next, calculate
+// the value in pixels that we should subtract from each individual column.
+// i.e. for 5 columns – calc(180px / 5). Finally, subtract this amount from the
+// percentage width of your column (20% for five columns)
+// i.e. calc(20% - calc(180px / 5)). This should give you a perfect width for
+// each column, leaving the exact amount for each gutter
+
+@function column_width_plus_gutter($cols, $gutter_width) {
+  $spaces: calc(#{$cols} - 1);
+  $gutter_total: calc(#{$gutter_width} * #{$spaces});
+  $percentage_width: calc(100% / #{$cols});
+
+  $result: calc(#{$percentage_width} - calc(#{$gutter_total} / #{$cols}));
+  @return $result;
+}
+
+@function single_column_width_plus_gutter($base_width, $cols, $gutter_width) {
+  $spaces: calc(#{$cols} - 1);
+  $gutter_total: calc(#{$gutter_width} * #{$spaces});
+
+  $result: calc(#{$base_width} - calc(#{$gutter_total} / #{$cols}));
+  @return $result;
+}

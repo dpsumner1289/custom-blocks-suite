@@ -1,0 +1,63 @@
+@import "../../styles/functions";
+@import "../../styles/global/colors.scss";
+
+.placeholder-grid,
+.industry {
+  .row-1 {
+    .post {
+      &:first-child {
+        flex-basis: single_column_width_plus_gutter("50%", "3", "45px");
+        width: single_column_width_plus_gutter("50%", "3", "45px");
+      }
+      &:not(:first-child) {
+        flex-basis: single_column_width_plus_gutter("25%", "3", "45px");
+        width: single_column_width_plus_gutter("25%", "3", "45px");
+      }
+    }
+  }
+
+  .row-2 {
+    margin-top: 45px;
+    .post {
+      &:nth-child(2) {
+        flex-basis: single_column_width_plus_gutter("50%", "3", "45px");
+        width: single_column_width_plus_gutter("50%", "3", "45px");
+      }
+      &:not(:nth-child(2)) {
+        flex-basis: single_column_width_plus_gutter("25%", "3", "45px");
+        width: single_column_width_plus_gutter("25%", "3", "45px");
+      }
+    }
+  }
+}
+.placeholder-grid {
+  .row-1 {
+    .post {
+      height: 150px;
+      &:first-child {
+        background-color: $apricot;
+      }
+      &:nth-child(2) {
+        background-color: $space;
+      }
+      &:last-child {
+        background-color: $retro_green;
+      }
+    }
+  }
+
+  .row-2 {
+    .post {
+      height: 150px;
+      &:nth-child(2) {
+        background-color: $light_emerald;
+      }
+      &:first-child {
+        background-color: $robbins_egg;
+      }
+      &:nth-child(3) {
+        background-color: $lava;
+      }
+    }
+  }
+}
