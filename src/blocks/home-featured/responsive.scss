@@ -16,11 +16,16 @@
     }
   }
   @include breakpoint(mobile) {
+    h2.featured {
+      margin-top: 3px;
+    }
     article.post {
       margin-bottom: 35px;
     }
     a.readmore-posts {
       width: 100%;
+      margin-top: 0;
+      height: 46px;
     }
     .featured-posts-wrap .post,
     .featured-posts-wrap .post:first-child {

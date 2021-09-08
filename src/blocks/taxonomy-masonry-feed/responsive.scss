@@ -25,9 +25,25 @@
       line-height: 40px;
       margin-bottom: 15px;
     }
+    .termsList {
+      &.active {
+        width: 96%;
+        left: 2%;
+      }
+      .modal-heading {
+        font-size: 35px;
+        line-height: 45px;
+        text-align: center;
+      }
+    }
+    .wrapper {
+      padding: 60px 0 35px;
+    }
     .posts-feed {
       a.readmore-posts {
         width: 100%;
+        margin-top: 0;
+        height: 46px;
       }
     }
     .feed-cta,
@@ -52,9 +68,11 @@
     .categories-posts-feed {
       .row-1,
       .row-2 {
+        margin-top: 0;
         flex-wrap: wrap;
         article {
           @include reset-flex-width();
+          margin-bottom: 32px;
         }
       }
     }

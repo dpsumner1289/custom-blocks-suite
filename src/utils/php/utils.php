@@ -153,6 +153,8 @@ if (!function_exists('ctct_blogs_feed_posts_by_term')) {
         if ($tax == 'industry') {
             $middle = 2;
             $numPosts = 5;
+            $tax_slug = $tax;
+            $term_slug = get_term( $term)->slug; 
             $args['tax_query'] = array(
                 array(
                     'taxonomy' => 'industry',
@@ -163,7 +165,10 @@ if (!function_exists('ctct_blogs_feed_posts_by_term')) {
             $middle = 1;
             $numPosts = 4;
             $args['cat'] = array($term);
+            $tax_slug = 'category';
+            $term_slug = get_category( $term )->slug;
         }
+        $link_to_more = trailingslashit(get_site_url(null, $tax_slug)) . $term_slug;
         $args['posts_per_page'] = $numPosts;
         $postCount = 1;
         $posts = new WP_Query($args);
@@ -186,7 +191,7 @@ if (!function_exists('ctct_blogs_feed_posts_by_term')) {
                         <?php basic_author_header($postID); ?> |
                         <?php time_to_read(); ?>
                     </div>
-                    <h3><a href="<?php echo $url; ?>"><?php echo get_the_title(); ?></a></h3>
+                    <h3 class="post-title"><a href="<?php echo $url; ?>"><?php echo get_the_title(); ?></a></h3>
                     <a href="<?php echo $link; ?>"><?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
                 </article>
             <?php
@@ -203,6 +208,7 @@ if (!function_exists('ctct_blogs_feed_posts_by_term')) {
                 $postCount++;
             endwhile; ?>
         </div>
+        <a class="readmore-posts flex afc jfsb" href="<?php echo $link_to_more; ?>">More <i class="fas fa-angle-right"></i></a>
         <?php
         die();
     }

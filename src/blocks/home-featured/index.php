@@ -70,7 +70,7 @@ function ctct_bcb_home_featured_posts($attributes)
                 endwhile;
                 ?>
             </div>
-            <a class="readmore-posts flex afc jfsb" href="">More<span> featured articles</span><i class="fas fa-angle-right"></i></a>
+            <a class="readmore-posts flex afc jfsb" href="https://blogs.constantcontact.com/category/online-presence/holiday-marketing/">More<span> featured articles</span><i class="fas fa-angle-right"></i></a>
         </section>
 <?php
     endif;

@@ -63,6 +63,8 @@ function ctct_bcb_tax_masonry_feed($attributes)
         $modal_label = "industries";
         $args['posts_per_page'] = 5;
         $numPosts = 5;
+        $tax_slug = $grid_props['tax'];
+        $term_slug = get_term( $tax_props['selectedTerm'], $grid_props['tax'] )->slug;
         $args['tax_query'] = array(
             array(
                 'taxonomy' => $grid_props['tax'],
@@ -73,9 +75,12 @@ function ctct_bcb_tax_masonry_feed($attributes)
         $middle = 1;
         $modal_label = "topics";
         $args['posts_per_page'] = 4;
+        $tax_slug = 'category';
+        $term_slug = get_category( $tax_props['selectedTerm'] )->slug;
         $numPosts = 4;
         $args['cat'] = array($tax_props['selectedTerm']);
     }
+    $link_to_more = trailingslashit(get_site_url(null, $tax_slug)) . $term_slug;
     $postCount = 1;
     $posts = new WP_Query($args);
 ?>
@@ -139,7 +144,7 @@ function ctct_bcb_tax_masonry_feed($attributes)
                     $postCount++;
                 endwhile; ?>
             </div>
-            <a class="readmore-posts flex afc jfsb" href="">More <i class="fas fa-angle-right"></i></a>
+            <a class="readmore-posts flex afc jfsb" href="<?php echo $link_to_more; ?>">More <i class="fas fa-angle-right"></i></a>
         </div>
     </div>
 <?php
