@@ -1,5 +1,5 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
   return {
     presets: [
       [
@@ -7,9 +7,11 @@ module.exports = function (api) {
         {
           pragma: "wp.element.createElement",
         },
+        "@babel/preset-env",
       ],
       "minify",
       "@babel/env",
     ],
-  };
-};
+    plugins: [["@babel/transform-runtime"]],
+  }
+}

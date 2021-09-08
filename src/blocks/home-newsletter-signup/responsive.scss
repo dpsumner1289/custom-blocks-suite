@@ -1,0 +1,31 @@
+@import "../../styles/mixins";
+
+.home-newsletter-signup {
+  @include breakpoint(tablet) {
+    max-width: calc(100% - 32px);
+  }
+  @include breakpoint(mobile) {
+    padding: 37px 16px;
+    h2.cta {
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    form#subscribe {
+      flex-wrap: wrap;
+      margin-top: 29px;
+      input#subbutton {
+        width: 100%;
+        height: 38px;
+        margin-top: 20px;
+        flex-basis: 100%;
+      }
+      input.newsletter-email-field {
+        width: 100%;
+      }
+    }
+  }
+}

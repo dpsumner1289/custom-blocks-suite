@@ -1,0 +1,12 @@
+@import "../../styles/mixins";
+
+.featured-authors-wrap {
+  @include breakpoint(maxWidth) {
+    @include responsive-margins();
+  }
+  @include breakpoint(mobile) {
+    .author {
+      @include reset-flex-width();
+    }
+  }
+}

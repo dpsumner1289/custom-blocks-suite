@@ -5,3 +5,27 @@
     margin: 0 auto;
   }
 }
+
+@mixin breakpoint($device) {
+  $width: 1024px !default;
+  @if $device == mobile {
+    $width: 440px;
+  } @else if $device == tablet {
+    $width: 1024px;
+  } @else if $device == maxWidth {
+    $width: 1200px;
+  }
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin responsive-margins() {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@mixin reset-flex-width() {
+  width: 100% !important;
+  flex-basis: 100% !important;
+}

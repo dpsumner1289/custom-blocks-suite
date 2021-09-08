@@ -1,0 +1,62 @@
+@import "../../styles/mixins";
+
+.taxonomy-masonry-feed {
+  @include breakpoint(maxWidth) {
+    @include responsive-margins();
+    form.signup-form-actual-form input.newsletter-email-field {
+      width: 75%;
+    }
+    .posts-feed {
+      a.readmore-posts {
+        right: auto;
+        bottom: auto;
+        position: relative;
+        margin: 40px auto 0;
+        width: 50%;
+        justify-content: center;
+        i {
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+  @include breakpoint(mobile) {
+    h2 {
+      line-height: 40px;
+      margin-bottom: 15px;
+    }
+    .posts-feed {
+      a.readmore-posts {
+        width: 100%;
+      }
+    }
+    .feed-cta,
+    .feed-newsletter-signup {
+      display: none;
+    }
+    .termsList {
+      width: 100%;
+      margin-left: 0;
+      .slide {
+        button {
+          font-size: 16px;
+          line-height: 25px;
+          width: 100%;
+          a.more-plus {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+    .industry-posts-feed,
+    .categories-posts-feed {
+      .row-1,
+      .row-2 {
+        flex-wrap: wrap;
+        article {
+          @include reset-flex-width();
+        }
+      }
+    }
+  }
+}

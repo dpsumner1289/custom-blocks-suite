@@ -52,6 +52,7 @@ function ctct_bcb_home_recent_posts($attributes)
                 <?php
                 endwhile;
                 ?>
+                <a class="readmore-posts flex afc jfsb" href="">More <span>recent articles</span><i class="fas fa-angle-right"></i></a>
             </div>
         </section>
 <?php

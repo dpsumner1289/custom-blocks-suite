@@ -1,2 +1,281 @@
-@import "../../components/TaxGrid/style.scss";
-@import "../../components/ScrollPicker/style.scss";
+@import "../../styles/functions";
+@import "../../styles/mixins";
+@import "../../styles/global/headings";
+@import "../../styles/global/authors";
+@import "../../styles/global/colors";
+@import "../../components/TaxGrid/style";
+@import "../../components/ScrollPicker/style";
+@import "../../styles/global/forms";
+
+body {
+  background-color: $snow !important;
+  #page-header {
+    h1 {
+      display: none;
+    }
+  }
+}
+.taxonomy-masonry-feed {
+  &.industries-feed {
+    background-color: $pearl;
+    padding-bottom: 85px;
+  }
+  .wrapper,
+  .posts-feed {
+    @include contain(main);
+    position: relative;
+    article {
+      figure.post-image {
+        position: relative;
+        a {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        margin-bottom: 25px;
+        width: 100%;
+        height: 225px;
+        background-size: cover;
+        background-position: 50%;
+      }
+    }
+    a.readmore-posts {
+      border: 1px solid;
+      width: 63px;
+      height: 31px;
+      size: 14px;
+      padding: 4px;
+      font-weight: 600;
+      position: absolute;
+      right: -85px;
+      bottom: 70px;
+    }
+  }
+  .wrapper {
+    padding: 69px 0 85px;
+  }
+  .row-1,
+  .row-2 {
+    max-width: 100%;
+    a {
+      max-width: 100%;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+  .row-2 {
+    margin-top: 45px;
+  }
+  .industry-posts-feed {
+    .row-1 {
+      flex-wrap: nowrap;
+      .feed-cta {
+        color: $snow;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 30px;
+        button {
+          border-radius: 28px;
+          background-color: $apricot;
+          border-style: none;
+          margin-top: 17px;
+          width: 145px;
+          height: 38px;
+          font-size: 15px;
+          font-weight: 600;
+          line-height: 24px;
+          cursor: pointer;
+          &:hover {
+            background-color: $apricot_hover;
+          }
+        }
+      }
+      article,
+      .feed-cta {
+        flex-basis: single_column_width_plus_gutter("25%", "3", "45px");
+        width: single_column_width_plus_gutter("24%", "3", "45px");
+      }
+      article {
+        &:first-child {
+          flex-basis: single_column_width_plus_gutter("50%", "3", "45px");
+          width: single_column_width_plus_gutter("50%", "3", "45px");
+        }
+      }
+    }
+    .row-2 {
+      flex-wrap: nowrap;
+      article {
+        flex-basis: single_column_width_plus_gutter("25%", "3", "45px");
+        width: single_column_width_plus_gutter("25%", "3", "45px");
+        &:nth-child(2) {
+          flex-basis: single_column_width_plus_gutter("50%", "3", "45px");
+          width: single_column_width_plus_gutter("50%", "3", "45px");
+        }
+      }
+    }
+  }
+  .categories-posts-feed {
+    .row-1 {
+      flex-wrap: nowrap;
+      .feed-newsletter-signup {
+        height: 330px;
+        padding: 0 18px;
+        .cta {
+          font-size: 26px;
+          text-align: center;
+          line-height: 39px;
+          margin-bottom: 36px;
+        }
+      }
+      article,
+      .feed-newsletter-signup {
+        flex-basis: single_column_width_plus_gutter("50%", "2", "45px");
+        width: single_column_width_plus_gutter("50%", "2", "45px");
+      }
+    }
+    .row-2 {
+      flex-wrap: nowrap;
+      article {
+        flex-basis: single_column_width_plus_gutter("25%", "3", "45px");
+        width: single_column_width_plus_gutter("25%", "3", "45px");
+        &:nth-child(2) {
+          flex-basis: single_column_width_plus_gutter("50%", "3", "45px");
+          width: single_column_width_plus_gutter("50%", "3", "45px");
+        }
+      }
+    }
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 70px;
+    margin: 0;
+  }
+  h3.post-title {
+    margin: 0 0 15px;
+    a {
+      color: $charcoal;
+    }
+  }
+  .termsList {
+    position: relative;
+    height: 45px;
+    margin-left: 15px;
+    overflow: hidden;
+    flex-wrap: nowrap !important;
+    a.close-termsList {
+      position: absolute;
+      right: 42px;
+      top: 42px;
+      border: none;
+      background: none;
+      color: $snow;
+      font-size: 41px;
+      line-height: 0;
+      cursor: pointer;
+      z-index: 1;
+      i {
+        position: relative;
+        z-index: -1;
+      }
+    }
+    .modal-heading {
+      font-size: 60px;
+      line-height: 70px;
+      color: $snow;
+      margin-top: 0;
+    }
+    .slide {
+      height: inherit;
+      button {
+        font-weight: 600;
+        height: inherit;
+        border-radius: 6px;
+        border-style: none;
+        background-color: $constant_blue;
+        font-size: 18px;
+        line-height: 27px;
+        color: $snow;
+        padding: 10px 13px 9px 24px;
+        .more-plus {
+          margin-left: 100px;
+          line-height: 0;
+        }
+      }
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+    &:not(.active) {
+      a.close-termsList {
+        display: none;
+      }
+      .slide {
+        background-image: none !important;
+        &.selected {
+          order: 1;
+        }
+        &:not(.selected) {
+          order: 2;
+        }
+      }
+      .modal-heading {
+        display: none;
+      }
+    }
+    &.active {
+      position: fixed;
+      z-index: 999;
+      height: 100%;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: $constant_blue;
+      left: 10%;
+      top: 0;
+      .slide-container {
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        line-height: 45px;
+        // .slide.selected {
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   height: 215px;
+        //   max-width: 863px;
+        //   width: 100%;
+        // }
+      }
+      .modal-heading {
+        display: block;
+      }
+      .slide {
+        height: auto;
+        background: transparent;
+        background-image: none !important;
+        button {
+          height: auto;
+          font-size: 22px;
+          background: transparent;
+          .more-plus {
+            display: none;
+          }
+        }
+      }
+      &:after {
+        z-index: -1;
+      }
+    }
+  }
+}

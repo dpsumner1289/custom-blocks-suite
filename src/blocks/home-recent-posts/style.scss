@@ -6,9 +6,26 @@
 .home-recent-posts {
   @include contain(main);
   margin-top: 55px;
+  padding: 0 0 85px;
   .recent-posts-wrap {
+    width: 100%;
+    position: relative;
     .post {
       width: column_width_plus_gutter("4", "45px");
+    }
+    a.readmore-posts {
+      border: 1px solid;
+      width: 63px;
+      height: 31px;
+      size: 14px;
+      padding: 4px;
+      font-weight: 600;
+      position: absolute;
+      right: -85px;
+      bottom: 70px;
+      span {
+        display: none;
+      }
     }
   }
 }

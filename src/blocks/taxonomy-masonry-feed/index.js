@@ -1,15 +1,16 @@
 const { useState } = wp.element
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
-
+import React from "react"
 import { getIndustryList, getTopicList } from "../../data/taxonomy"
-import { getFilteredPosts } from "../../data/posts"
+import { getFilteredPosts, getMedia } from "../../data/posts"
 import TaxonomySelect from "../../components/TaxonomySelect"
 import SelectTaxonomy from "../../components/SelectTaxonomy"
 import TaxGrid from "../../components/TaxGrid/"
 
 import "./editor.scss"
 import "./style.scss"
+import "./responsive.scss"
 import ScrollPicker from "../../components/ScrollPicker"
 
 registerBlockType("ctct-bcb/tax-masonry-feed", {
@@ -79,13 +80,34 @@ registerBlockType("ctct-bcb/tax-masonry-feed", {
       posts: attributes.posts || posts,
       tax: attributes.selectedTax || tax,
     }
+    const gridPropsServer = {
+      posts:
+        posts ||
+        attributes.posts.map(post => {
+          return {
+            id: post.id,
+            title: post.title.rendered,
+            link: post.link,
+            author: post.author,
+            image: post._links["wp:featuredmedia"][0].href,
+          }
+        }),
+      tax: attributes.selectedTax || tax,
+    }
+    console.log("tax props", taxProps)
     const slideProps = {
       terms: attributes.termList || terms,
       type: tax,
       active: false,
       selectedTerm: attributes.selectedTerm || term,
     }
-    return (
+    const JSONprops = {
+      selectTaxProps: selectTaxProps,
+      taxProps: taxProps,
+      slideProps: slideProps,
+      gridProps: gridPropsServer,
+    }
+    const markup = (
       <div>
         <SelectTaxonomy {...selectTaxProps} />
         <section className="taxFeed-block-wrap flex col afs jfs">
@@ -95,6 +117,8 @@ registerBlockType("ctct-bcb/tax-masonry-feed", {
         </section>
       </div>
     )
+    setAttributes({ markup: JSON.stringify(JSONprops) })
+    return markup
   },
 
   save: props => null,

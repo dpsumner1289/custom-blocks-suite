@@ -1,0 +1,30 @@
+@import "../../styles/mixins";
+
+.home-featured-posts {
+  @include breakpoint(maxWidth) {
+    @include responsive-margins();
+    a.readmore-posts {
+      right: auto;
+      bottom: auto;
+      position: relative;
+      margin: 40px auto 0;
+      width: 50%;
+      justify-content: center;
+      i {
+        margin-left: 6px;
+      }
+    }
+  }
+  @include breakpoint(mobile) {
+    article.post {
+      margin-bottom: 35px;
+    }
+    a.readmore-posts {
+      width: 100%;
+    }
+    .featured-posts-wrap .post,
+    .featured-posts-wrap .post:first-child {
+      @include reset-flex-width();
+    }
+  }
+}

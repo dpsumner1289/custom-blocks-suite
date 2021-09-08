@@ -23,3 +23,17 @@ export const getMedia = props => {
       return picked
     })
 }
+
+export const getFeaturedImageUrl = async props => {
+  return window
+    .fetch(`${props.rest}`)
+    .then(res => res.json())
+    .then(img => {
+      if (typeof img.media_details !== "undefined") {
+        return img.media_details.sizes.large.source_url
+      } else {
+        console.log("cannot find featured media")
+        return ""
+      }
+    })
+}

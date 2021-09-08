@@ -8,6 +8,7 @@ require_once plugin_dir_path(__FILE__) . 'blocks/image-text-split/index.php';
 require_once plugin_dir_path(__FILE__) . 'blocks/recent-videos/index.php';
 require_once plugin_dir_path(__FILE__) . 'blocks/home-recent-posts/index.php';
 require_once plugin_dir_path(__FILE__) . 'blocks/home-featured/index.php';
+require_once plugin_dir_path(__FILE__) . 'blocks/home-featured-authors/index.php';
 require_once plugin_dir_path(__FILE__) . 'blocks/home-newsletter-signup/index.php';
 require_once plugin_dir_path(__FILE__) . 'blocks/what-is-answer/index.php';
 require_once plugin_dir_path(__FILE__) . 'blocks/taxonomy-masonry-feed/index.php';

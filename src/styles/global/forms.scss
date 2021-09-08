@@ -1,0 +1,24 @@
+form.signup-form-actual-form {
+  input.newsletter-email-field {
+    width: 336px;
+    padding: 7.5px 20px;
+    margin-right: 5px;
+    border-color: $snow;
+    &:focus {
+      outline: none;
+    }
+  }
+  input#subbutton {
+    width: 145px;
+    color: $space;
+    background-color: $apricot;
+    border-color: $apricot;
+    cursor: pointer;
+  }
+  input.newsletter-email-field,
+  input#subbutton {
+    font-size: 15px;
+    line-height: 24px;
+    border-style: none;
+  }
+}

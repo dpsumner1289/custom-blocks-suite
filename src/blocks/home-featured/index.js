@@ -4,6 +4,7 @@ const { serverSideRender: ServerSideRender } = wp
 
 import "./editor.scss"
 import "./style.scss"
+import "./responsive.scss"
 
 registerBlockType("ctct-bcb/home-featured-posts", {
   title: __("Home Featured Posts"),

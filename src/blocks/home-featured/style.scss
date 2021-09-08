@@ -4,6 +4,7 @@
 @import "../../styles/global/authors";
 
 .home-featured-posts {
+  position: relative;
   @include contain(main);
   .featured-posts-wrap {
     .post {
@@ -36,6 +37,21 @@
         flex-basis: single_column_width_plus_gutter("50%", "3", "45px");
         width: single_column_width_plus_gutter("50%", "3", "45px");
       }
+    }
+  }
+  a.readmore-posts {
+    border: 1px solid;
+    width: 63px;
+    height: 31px;
+    size: 14px;
+    padding: 4px;
+    font-weight: 600;
+    position: absolute;
+    right: -85px;
+    bottom: 70px;
+    span {
+      display: none;
+      padding-left: 3px;
     }
   }
 }

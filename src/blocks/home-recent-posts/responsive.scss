@@ -1,0 +1,45 @@
+@import "../../styles/mixins";
+
+.home-recent-posts {
+  @include breakpoint(maxWidth) {
+    @include responsive-margins();
+    .recent-posts-wrap {
+      a.readmore-posts {
+        right: auto;
+        bottom: auto;
+        position: relative;
+        margin: 40px auto 0;
+        justify-content: center;
+        width: 50%;
+        i {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+  @include breakpoint(mobile) {
+    h2.recent {
+      font-size: 30px;
+    }
+    .recent-posts-wrap {
+      .post {
+        @include reset-flex-width();
+        .post-meta {
+          display: none;
+        }
+        h3.post-title {
+          font-size: 16px;
+        }
+      }
+      a.readmore-posts {
+        width: 100%;
+        span {
+          display: inline-block;
+          span {
+            padding-left: 3px;
+          }
+        }
+      }
+    }
+  }
+}

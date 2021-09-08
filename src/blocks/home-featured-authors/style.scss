@@ -1,0 +1,52 @@
+@import "../../styles/functions";
+@import "../../styles/mixins";
+@import "../../styles/global/colors.scss";
+
+.home-featured-authors {
+  padding: 75px 0 80px;
+  .featured-authors-wrap {
+    @include contain(main);
+  }
+  h2 {
+    font-size: 18px;
+    display: block;
+    margin: 0 auto 43px;
+    line-height: 30px;
+  }
+  .author {
+    h3.author-name {
+      margin: 0 0 10px;
+      font-size: 14px;
+      line-height: 30px;
+      text-transform: uppercase;
+      font-weight: 600;
+      a {
+        color: $charcoal;
+      }
+    }
+    h4 {
+      margin: 0;
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 300;
+    }
+    .more-arrow {
+      font-size: 12px;
+      text-decoration: underline;
+      margin-top: 21px;
+      svg {
+        height: 12.44px;
+        margin-left: 10px;
+      }
+    }
+    .featured-author-image {
+      filter: grayscale(100%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: contain;
+      margin-right: 20px;
+    }
+  }
+}

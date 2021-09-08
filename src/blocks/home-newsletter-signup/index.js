@@ -7,6 +7,7 @@ const { serverSideRender: ServerSideRender } = wp
 
 import "./editor.scss"
 import "./style.scss"
+import "./responsive.scss"
 
 registerBlockType("ctct-bcb/home-newsletter-signup", {
   title: __("Home Newsletter Signup"),
