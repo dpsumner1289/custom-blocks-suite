@@ -1,8 +1,11 @@
 @import "../../styles/mixins";
+@import "../../styles/functions";
 
 .home-featured-posts {
   @include breakpoint(maxWidth) {
     @include responsive-margins();
+  }
+  @include breakpoint(1380px) {
     a.readmore-posts {
       right: auto;
       bottom: auto;
@@ -15,12 +18,18 @@
       }
     }
   }
+  @include breakpoint(800px) {
+    .featured-posts-wrap .post {
+      flex-basis: single_column_width_plus_gutter("50%", "2", "45px");
+    }
+    .featured-posts-wrap .post:first-child {
+      @include reset-flex-width();
+      margin-bottom: 45px;
+    }
+  }
   @include breakpoint(mobile) {
     h2.featured {
       margin-top: 3px;
-    }
-    article.post {
-      margin-bottom: 35px;
     }
     a.readmore-posts {
       width: 100%;
@@ -30,6 +39,7 @@
     .featured-posts-wrap .post,
     .featured-posts-wrap .post:first-child {
       @include reset-flex-width();
+      margin-bottom: 32px;
     }
   }
 }

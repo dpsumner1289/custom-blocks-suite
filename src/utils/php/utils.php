@@ -13,7 +13,6 @@ if (!function_exists("basic_author_header")) {
     {
         $ID = get_queried_object()->data->ID;
         $coauthor = get_coauthors()[0];
-
         if ($coauthor->type === "guest-author") {
             $ID = $coauthor->ID;
             $meta = get_post_meta($ID);
@@ -28,9 +27,9 @@ if (!function_exists("basic_author_header")) {
             <figcaption>' . $author_name . '</figcaption>
             </figure>';
         } else {
-            $author_ID = get_queried_object()->post_author;
+            $author_ID = $coauthor->ID;
             $gravatar = get_avatar($author_ID, 100);
-            $author_name = get_the_author_meta($author_ID, "display_name");
+            $author_name = $coauthor->display_name;
             if (empty($author_name)) {
                 $author_name = "Constant Contact";
             }
@@ -192,7 +191,7 @@ if (!function_exists('ctct_blogs_feed_posts_by_term')) {
                         <?php time_to_read(); ?>
                     </div>
                     <h3 class="post-title"><a href="<?php echo $url; ?>"><?php echo get_the_title(); ?></a></h3>
-                    <a href="<?php echo $link; ?>"><?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
+                    <a href="<?php echo $link; ?>" class="flex row afc more-arrow">Read now<?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
                 </article>
             <?php
                 if ($postCount == $middle || ($postCount <= $middle && $postCount >= $foundposts)) {
@@ -222,21 +221,16 @@ if (!function_exists("ctct_blogs_form_or_cta")) {
         if ($type == "categories") {
         ?>
             <div class="feed-newsletter-signup flex col jfc afc" style="background-image:url(<?php echo '/wp-content/plugins/ctct-blogs-custom-blocks/src/assets/img/robins-egg-bg.jpg'; ?>)">
-                <h2 class="cta">Subscribe to our newsletter for marketing advice in your inbox.</h2>
-                <form id="subscribe" class="signup-form-actual-form signup-form-actual-form-footer flex row nowrap" accept-charset="utf-8" action="https://cloud.c.constantcontact.com/jmmlsubscriptions/coi_verify" method="GET" target="_blank">
-                    <input id="subbox" class="newsletter-email-field newsletter-email-field-footer" maxlength="255" name="email" required="required" type="text" placeholder="Enter your email address" />
-                    <input name="sub" type="hidden" value="1" />
-                    <input name="method" type="hidden" value="JMML_hints_tips" />
-                    <input id="page" name="page" type="hidden" value="" />
-                    <input id="subbutton" class="item_2_7 submit_optin_form" type="submit" value="Sign up" />
-                </form>
+                <h2 class="cta">Not sure where to start with marketing? That’s why we created <span>The Download</span>.</h2>
+                <button><a href="https://www.constantcontact.com/guides/making-sense-of-online-marketing">Get the Guide</a></button>
             </div>
         <?php
         } else {
         ?>
             <div class="feed-cta flex col afc jfc" style="background-image:url(<?php echo '/wp-content/plugins/ctct-blogs-custom-blocks/src/assets/img/constant-blue-bg.jpg'; ?>)">
-                A short, succinct headline.
-                <button class="cta-button flex row afc jfc">CTA</button>
+                <h3>Grow your business with online marketing</h3>
+                <p>Email marketing, social media, ads and more.</p>
+                <button class="cta-button flex row afc jfc"><a href="https://go.constantcontact.com/signup.jsp">Start a Trial</a></button>
             </div>
 <?php
         }

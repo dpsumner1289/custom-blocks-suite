@@ -83,29 +83,29 @@ function ctct_bcb_tax_masonry_feed($attributes)
     $link_to_more = trailingslashit(get_site_url(null, $tax_slug)) . $term_slug;
     $postCount = 1;
     $posts = new WP_Query($args);
+    $selectedTermName = get_term( $tax_props['selectedTerm'] )->name;
 ?>
     <div class="taxonomy-masonry-feed flex col <?php echo $modal_label; ?>-feed">
         <div class="wrapper flex row afc jfs">
             <h2><?php echo $select_tax_props['selected']['title']; ?></h2>
+            <?php echo "<button class='open-modal flex row afc jfsb' data-open='". $grid_props['tax'] ."'>".$selectedTermName."<a class='more-plus'>" . file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/plus.svg') . "</a></button>"; ?>
             <div class="termsList flex col <?php echo $grid_props['tax']; ?>">
-                <a class="close-termsList" data-taxList="<?php echo $grid_props['tax']; ?>"><i class="far fa-times-circle"></i></a>
-                <h3 class="modal-heading">Browse all <?php echo $modal_label; ?></h3>
-                <div class="slide-container flex col">
-                    <?php foreach ($tax_props["terms"] as $term) {
-                        $term_meta = get_term_meta($term['id'], 'picker_background_image');
-                        $image = wp_get_attachment_image_src($term_meta[0], "large");
+                <a class="close-termsList" data-taxList="<?php echo $grid_props['tax']; ?>"><i class="fas fa-times"></i></a>
+                <ul class="slide-container flex col">
+                    <?php 
+                    foreach ($tax_props["terms"] as $term) {
                         $selected = "";
                         if ($tax_props['selectedTerm'] == $term['id'])
                             $selected = " selected";
                         echo "
-                        <div class='slide" . $selected . "' style='background-image:url(" . $image[0] . ");'>
-                            <button class='termSelectButton term flex row afc' data-id='" . $term['id'] . "' data-tax='" . $grid_props['tax'] . "' data-rest='" . $term["_links"]["wp:post_type"][0]["href"] . "'>" . $term['name'] . "
-                            <a class='more-plus'>" . file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/plus.svg') . "</a>
+                        <li class='slide flex row afc" . $selected . "'>
+                            <button class='termSelectButton term flex row afc' data-id='" . $term['id'] . "' data-tax='" . $grid_props['tax'] . "' data-rest='" . $term["_links"]["wp:post_type"][0]["href"] . "' value='".$term['name']."'>" . $term['name'] . "
                             </button>
-                        </div>
+                            <i class='fas fa-angle-right'></i>
+                        </li>
                         ";
                     } ?>
-                </div>
+                </ul>
             </div>
         </div>
         <div class="posts-feed <?php echo $grid_props['tax']; ?>-posts-feed">
@@ -128,7 +128,7 @@ function ctct_bcb_tax_masonry_feed($attributes)
                             <?php time_to_read(); ?>
                         </div>
                         <h3 class="post-title"><a href="<?php echo $url; ?>"><?php echo get_the_title(); ?></a></h3>
-                        <a href="<?php echo $link; ?>"><?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
+                        <a href="<?php echo $link; ?>" class="more-arrow flex row afc">Read now <?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
                     </article>
                 <?php
                     if ($postCount == $middle || ($postCount <= $middle && $postCount >= $foundposts)) {

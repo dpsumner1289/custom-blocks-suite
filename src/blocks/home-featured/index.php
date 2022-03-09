@@ -23,12 +23,12 @@ function ctct_bcb_home_featured_posts($attributes)
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => 3,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'meta_query' => array(array(
-            'key' => 'home_featured',
-            'value' => 'on'
-        )),
+        'orderby' => 'post__in',
+        'post__in' => array(28955, 29221, 85053),
+        // 'meta_query' => array(array(
+        //     'key' => 'home_featured',
+        //     'value' => 'on'
+        // )),
         'post_status' => 'publish',
     );
     ob_start();
@@ -37,7 +37,7 @@ function ctct_bcb_home_featured_posts($attributes)
         $count = 1;
 ?>
         <section class="home-featured-posts flex col afs jfs">
-            <h2 class="featured">Featured</h2>
+            <h2 class="featured">Holiday Marketing Advice</h2>
             <div class="featured-posts-wrap flex row jfsb">
                 <?php
                 while ($posts->have_posts()) :
@@ -46,7 +46,7 @@ function ctct_bcb_home_featured_posts($attributes)
                     $link = get_the_permalink($postID);
                     $title = get_the_title($postID);
                     $image = get_the_post_thumbnail_url($postID, 'large');
-                    if($count == 1) {
+                    if ($count == 1) {
                         $snippet_length = 128;
                     } else {
                         $snippet_length = 55;
@@ -55,18 +55,18 @@ function ctct_bcb_home_featured_posts($attributes)
                 ?>
                     <article class="post">
                         <figure class="featured-post-image" style="background-image:url(<?php echo $image; ?>)">
-                    <a href="<?php echo $link; ?>"></a>
-                    </figure>
+                            <a href="<?php echo $link; ?>"></a>
+                        </figure>
                         <div class="post-meta flex row afc jfs">
                             <?php basic_author_header($postID); ?> |
                             <?php time_to_read(); ?>
                         </div>
                         <h3 class="post-title"> <a href="<?php echo $link; ?>"> <?php echo $title; ?></a></h3>
                         <p class="excerpt"><?php echo $excerpt; ?></p>
-                        <a href="<?php echo $link; ?>" class="more-arrow"><?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
+                        <a href="<?php echo $link; ?>" class="more-arrow flex row afc">Read now <?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
                     </article>
                 <?php
-                $count++;
+                    $count++;
                 endwhile;
                 ?>
             </div>

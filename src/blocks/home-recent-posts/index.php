@@ -47,7 +47,7 @@ function ctct_bcb_home_recent_posts($attributes)
                             <?php time_to_read(); ?>
                         </div>
                         <h3 class="post-title"> <a href="<?php echo $link; ?>"> <?php echo $title; ?></a></h3>
-                        <a href="<?php echo $link; ?>"><?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
+                        <a href="<?php echo $link; ?>" class="more-arrow flex row afc">Read now <?php echo file_get_contents(WP_PLUGIN_DIR . '/ctct-blogs-custom-blocks/src/assets/img/right-arrow.svg'); ?></a>
                     </article>
                 <?php
                 endwhile;

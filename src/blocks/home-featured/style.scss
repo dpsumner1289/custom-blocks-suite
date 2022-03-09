@@ -37,6 +37,11 @@
         flex-basis: single_column_width_plus_gutter("50%", "3", "45px");
         width: single_column_width_plus_gutter("50%", "3", "45px");
       }
+      .more-arrow {
+        svg {
+          margin-left: 6px;
+        }
+      }
     }
   }
   a.readmore-posts {

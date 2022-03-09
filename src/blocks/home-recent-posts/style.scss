@@ -12,6 +12,11 @@
     position: relative;
     .post {
       width: column_width_plus_gutter("4", "45px");
+      .more-arrow {
+        svg {
+          margin-left: 6px;
+        }
+      }
     }
     a.readmore-posts {
       border: 1px solid;

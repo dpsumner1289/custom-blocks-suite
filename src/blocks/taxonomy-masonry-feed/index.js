@@ -20,7 +20,6 @@ registerBlockType("ctct-bcb/tax-masonry-feed", {
 
   edit: props => {
     const { attributes, setAttributes } = props
-    console.log("attributes", attributes)
     const [terms, setTerms] = useState([])
     const [posts, setPosts] = useState([])
     const [term, setTerm] = useState(null)
@@ -36,11 +35,11 @@ registerBlockType("ctct-bcb/tax-masonry-feed", {
     const getTermsList = async taxType => {
       if (taxType === "industry") {
         return getIndustryList().then(list => {
-          setTermsAndLoad(list, "Industry:", "industry")
+          setTermsAndLoad(list, "Marketing Advice by Industry:", "industry")
           setAttributes({
             termList: list,
             selectedTax: "industry",
-            curTaxTitle: "Industry:",
+            curTaxTitle: "Marketing Advice by Industry:",
           })
         })
       } else if (taxType === "topic") {
@@ -94,7 +93,6 @@ registerBlockType("ctct-bcb/tax-masonry-feed", {
         }),
       tax: attributes.selectedTax || tax,
     }
-    console.log("tax props", taxProps)
     const slideProps = {
       terms: attributes.termList || terms,
       type: tax,

@@ -14,6 +14,8 @@
     $width: 1024px;
   } @else if $device == maxWidth {
     $width: 1200px;
+  } @else {
+    $width: $device;
   }
   @media screen and (max-width: $width) {
     @content;
@@ -28,4 +30,26 @@
 @mixin reset-flex-width() {
   width: 100% !important;
   flex-basis: 100% !important;
+}
+
+@mixin cta-button() {
+  border-radius: 28px;
+  background-color: #ff9e1a;
+  border-style: none;
+  margin-top: 17px;
+  width: 145px;
+  height: 38px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  cursor: pointer;
+  a {
+    color: $space;
+    &:hover {
+      color: $space;
+    }
+  }
+  &:hover {
+    background-color: $apricot_hover;
+  }
 }

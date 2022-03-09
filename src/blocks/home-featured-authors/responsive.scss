@@ -1,12 +1,22 @@
 @import "../../styles/mixins";
+@import "../../styles/functions";
 
 .featured-authors-wrap {
   @include breakpoint(maxWidth) {
     @include responsive-margins();
   }
+  @include breakpoint(800px) {
+    .author {
+      flex-basis: single_column_width_plus_gutter("50%", "2", "45px");
+      margin-bottom: 39px;
+    }
+  }
   @include breakpoint(mobile) {
     .author {
       @include reset-flex-width();
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
